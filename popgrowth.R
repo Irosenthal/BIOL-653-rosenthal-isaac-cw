@@ -5,17 +5,17 @@ N_1 <- 2
 r <- 1
 k <- 1000
 
-N_2 <- N_1+r*N_1*(1???N_1/k)
+N_2 <- N_1+r*N_1*(1-N_1/k)
 
 print(N_2)
 
 
-N_3 <- N_2+*???N_2*(1???N_2/k)
+N_3 <- N_2+*???N_2*(1-N_2/k)
 
 print(N_3)
 
 
-N_4 <- N_3+r*N_3*(1???N_3/k)
+N_4 <- N_3+r*N_3*(1-N_3/k)
 
 print(N_4)
 
@@ -27,7 +27,7 @@ dgrowth <- function(n, r, k, ngen, ninit){    # make a function named dgrowth wi
     n <- rep(NA, ngen)                          # rep will repeat it ngen times
     n[1] <- ninit                               # NA in n becomes ninit because NA is in the first position of n
     for (i in 2:ngen){                          # begin a for loop starting at 2nd position
-        n[i] <- (n[i-1])+r???(n[i-1]???1???(n[i-1])/k)  # for each position i, run the equation. note syntax: n[i-1]
+        n[i] <- (n[i-1])+r*(n[i-1]*1-(n[i-1])/k)  # for each position i, run the equation. note syntax: n[i-1]
     }
     print(n)                                      # return value
 }  
